@@ -7,7 +7,7 @@
             <div class="card bg-light mb-3">
                 <div class="card-body">
                     <h3><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h3>
-                    <small>Written on {{ $post->created_at }}</small>
+                    <small>Written on {{ $post->created_at }} by <span class="text-primary">{{ $post->user->name }}</span></small>
                 </div>
             </div>
         @endforeach
