@@ -2,15 +2,16 @@
 
 @section('content')
 <div class="container">
-  <form action="/posts" enctype="multipart/form-data" method="post">
+  <form action="/posts/{{ $post->id }}" enctype="multipart/form-data" method="post">
   @csrf
+  @method('PATCH')
 
     <div class="row">
       <div class="col-8 offset-2">
-      <div class="row"><h1>Add New Post</h1></div>
+      <div class="row"><h1>Edit Post</h1></div>
         <div class="form-group row">
           <label for="title" class="col-form-label">Title</label>
-          <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" title="title" value="{{ old('title') }}" placeholder="Title"  autocomplete="title" autofocus>
+          <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" title="title" value="{{ old('title') ?? $post->title }}" placeholder="Title"  autocomplete="title" autofocus>
 
           @error('title')
             <span class="invalid-feedback" role="alert">
@@ -20,7 +21,7 @@
         </div>
         <div class="form-group row">
             {{-- <label for="body" class="col-form-label">Body</label> --}}
-            <textarea id="article-ckeditor" name="body" class="form-control @error('body') is-invalid @enderror" body="body">
+            <textarea id="article-ckeditor" name="body" class="form-control @error('body') is-invalid @enderror" body="body">{{ $post->body }}
             </textarea>
             @error('body')
                 <span class="invalid-feedback" role="alert">
