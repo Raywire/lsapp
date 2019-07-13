@@ -19,7 +19,7 @@
           @enderror
         </div>
         <div class="form-group row">
-            {{-- <label for="body" class="col-form-label">Body</label> --}}
+            <label for="body" class="col-form-label">Body</label>
             <textarea id="article-ckeditor" name="body" class="form-control @error('body') is-invalid @enderror" body="body">
             </textarea>
             @error('body')
@@ -35,8 +35,4 @@
     </div>
   </form>
 </div>
-<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'article-ckeditor' );
-</script>
 @endsection
