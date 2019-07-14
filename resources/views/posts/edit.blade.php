@@ -29,6 +29,13 @@
                 </span>
             @enderror
         </div>
+        <div class="row">
+            <label for="cover_image" class="col-md-4 col-form-label">Post Image</label>
+            <input type="file" class="form-control-file" id="cover_image" name="cover_image">
+            @error('cover_image')
+                <strong>{{ $message }}</strong>
+            @enderror
+        </div>
         <div class="row pt-4">
           <button class="btn btn-primary">Update Post</button>
         </div>
