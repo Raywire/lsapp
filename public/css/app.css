@@ -10648,3 +10648,8 @@ a:hover {
   text-decoration: none;
 }
 
+.dashboard-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+

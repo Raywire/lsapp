@@ -10,7 +10,7 @@
                         <div class="col-md-4 col-sm-4">
                             <img class="w-100" src="/storage/cover_images/{{ $post->cover_image }}" alt="">
                         </div>
-                        <div class="col-md-8 col-sm-8">
+                        <div class="col-md-8 col-sm-8 my-auto">
                             <h3><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h3>
                             <small>Written on {{ $post->created_at }} by <span class="text-primary">{{ $post->user->name }}</span></small>
                         </div>

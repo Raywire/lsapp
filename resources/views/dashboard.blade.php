@@ -20,46 +20,47 @@
                             @foreach ($posts as $post)
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                <div class="card-body">
-                                    <h4 class="text-truncate">{{ $post->title }}</h4>
-                                    <p class="card-text text-truncate">{{ $post->body }}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary"><a href="/posts/{{ $post->id }}/edit">Edit</a></button>
+                                    <img class="bd-placeholder-img card-img-top dashboard-img" height="150px" src="/storage/cover_images/{{ $post->cover_image }}" alt="">
+                                    <div class="card-body">
+                                        <h4 class="text-truncate"><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h4>
+                                        <p class="card-text text-truncate">{{ $post->body }}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-primary"><a href="/posts/{{ $post->id }}/edit"><i class="far fa-edit"></i></a></button>
 
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-sm btn-outline-danger ml-2" data-toggle="modal" data-target="#exampleModal">
-                                        Delete
-                                        </button>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-sm btn-outline-danger ml-2" data-toggle="modal" data-target="#exampleModal">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
 
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Are you sure you want to delete this post?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <form action="/posts/{{ $post->id }}" class="float-right" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure you want to delete this post?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <form action="/posts/{{ $post->id }}" class="float-right" method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        {{-- <small class="text-muted">9 mins</small> --}}
+                                        </div>
                                     </div>
-                                    {{-- <small class="text-muted">9 mins</small> --}}
-                                    </div>
-                                </div>
                                 </div>
                             </div>
                             @endforeach

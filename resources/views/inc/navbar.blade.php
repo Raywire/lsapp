@@ -25,7 +25,7 @@
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                 @else
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/dashboard">Dashboard <span class="sr-only">(current)</span></a>
                     </li>
                 @endguest
