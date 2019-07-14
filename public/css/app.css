@@ -10648,6 +10648,10 @@ a:hover {
   text-decoration: none;
 }
 
+button a:hover {
+  color: #fff;
+}
+
 .dashboard-img {
   -o-object-fit: cover;
      object-fit: cover;

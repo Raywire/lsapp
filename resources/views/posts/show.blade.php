@@ -9,7 +9,7 @@
             {!! $post->body !!}
         </div>
         <hr>
-        <small>Written on {{ $post->created_at }} by <span class="text-primary">{{ $post->user->name }}</span></small>
+        <small>Written on {{ $post->created_at->format('D, M jS Y, H:i a') }} by <span class="text-primary">{{ $post->user->name }}</span></small>
         <hr>
         @if (!Auth::guest())
             @if (Auth::user()->id == $post->user_id)

@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-md-8 col-sm-8 my-auto">
                             <h3><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h3>
-                            <small>Written on {{ $post->created_at }} by <span class="text-primary">{{ $post->user->name }}</span></small>
+                            <small>Written {{ $post->created_at->diffForHumans() }} by <span class="text-primary">{{ $post->user->name }}</span></small>
                         </div>
                     </div>
                 </div>
