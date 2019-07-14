@@ -118,6 +118,7 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'cover_image' => 'image|nullable|max:1999',
         ]);
 
         // Handle file upload
@@ -146,7 +147,7 @@ class PostsController extends Controller
         }
         $post->save();
 
-        return redirect('/posts')->with('success', 'Post Updated');
+        return redirect('/posts/' . $id)->with('success', 'Post Updated');
     }
 
     /**

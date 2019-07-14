@@ -31,13 +31,28 @@
         </div>
         <div class="row">
             <label for="cover_image" class="col-md-4 col-form-label">Post Image</label>
-            <input type="file" class="form-control-file" id="cover_image" name="cover_image">
+            <input type="file" class="form-control-file" id="cover_image" onchange="loadImgPreview(this);" name="cover_image">
+            <img id="preview-img" class="w-25 rounded mx-auto d-block" src="/storage/cover_images/{{ $post->cover_image }}" accept='image/*' alt="">
             @error('cover_image')
                 <strong>{{ $message }}</strong>
             @enderror
         </div>
+        <script type="application/javascript">
+            function loadImgPreview(input) {
+                if (input.files && input.files[0]) {
+                    const reader = new FileReader();
+
+                    reader.onload = function () {
+                        const img = document.getElementById('preview-img')
+                        img.src = reader.result;
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
         <div class="row pt-4">
-          <button class="btn btn-primary">Update Post</button>
+          <button type="submit" class="btn btn-primary">Update Post</button>
         </div>
       </div>
     </div>
